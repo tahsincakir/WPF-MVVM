@@ -1,0 +1,86 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="AMSIS Calculator" 
+                   Grid.Row="0" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   FontSize="20" FontWeight="Black"
+                   HorizontalAlignment="Center" Margin="5,8" Padding="3">
+
+        </TextBlock>
+        <TextBlock Text="Input Expression" 
+                   Grid.Row="1" 
+                   Grid.Column="0" Margin="5,8" Padding="3" >
+        </TextBlock>
+        <TextBlock Text="Output Value" 
+                   Grid.Row="3" 
+                   Grid.Column="0" Margin="5,8" Padding="3" >
+        </TextBlock>
+        <TextBox Name="txtInputExpression"
+                 Grid.Row="1"
+                 Grid.Column="1" Margin="5,8" Padding="3"
+                 Text="{Binding Path=CurrentCalculation.ExpressionTxt, Mode=TwoWay}">
+        </TextBox>
+        <TextBox Name="txtOutputValue"
+                 Grid.Row="3"
+                 Grid.Column="2" Margin="5,8" Padding="3"
+                 Text="{Binding Path=CurrentCalculation.OutputValue, Mode=TwoWay}">
+        </TextBox>
+
+        <TextBlock Text="Input File Path" 
+                   Grid.Row="4" 
+                   Grid.Column="0" Margin="5,8" Padding="3" >
+        </TextBlock>
+        <TextBox Name="txtInputFilePath"
+                 Grid.Row="4"
+                 Grid.Column="2" Margin="5,8" Padding="3"
+                Text="expression.txt"></TextBox>
+
+        <TextBlock Text="Output File Path" 
+                   Grid.Row="5" 
+                   Grid.Column="0" Margin="5,8" Padding="3" >
+        </TextBlock>
+        <TextBox Name="txtOutputFilePath"
+                 Grid.Row="5"
+                 Grid.Column="2" Margin="5,8" Padding="3"
+                 Text="{Binding Path=CurrentCalculation.TxtOutputFilePath, Mode=TwoWay}"></TextBox>
+        <TextBlock Text="Message" 
+                   Grid.Row="6" 
+                   Grid.Column="0" Margin="5,8" Padding="3" >
+        </TextBlock>
+        <TextBox Name="txtMessage"
+                 Grid.Row="6"
+                 Grid.Column="2" Margin="5,8" Padding="3"
+                 Text="{Binding Path=CurrentCalculation.Message, Mode=TwoWay}"></TextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <Button Name="btnCalculate" Content="Calculate" Margin="5,8" Padding="3" Command="{Binding Path=CalculateCommand}"  Width="140"></Button>
+        </StackPanel>
+        
+       
+    </Grid>
+
+
+</Window>
